@@ -1,0 +1,23 @@
+<div class="chat">
+  <div class="time align-self-center">{{chat.time_label}}</div>
+  <div class="title align-self-center">
+    <div>
+      {{chat.title}}
+    </div>
+  </div>
+  <div class="chat-avatar align-self-center ">
+      <span *ngIf="chat.avatar" class="display-inline-block">
+        <gen-avatar [src]="chat.avatar" size="xl"></gen-avatar>
+      </span>
+  </div>
+  <div class="count-messages">
+      <span>
+        <span>{{chat.count_new_messages}}</span>
+      </span>
+  </div>
+  <div class="subtitle">
+      <span>
+        {{chat.sub_title}}
+      </span>
+  </div>
+</div>

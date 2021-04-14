@@ -1,0 +1,19 @@
+.wrap {
+  li {
+    margin: 5px 0;
+    text-align: center;
+
+    a {
+      color: blue;
+      text-decoration: underline;
+
+      &.back {
+        color: red;
+      }
+    }
+  }
+}
+
+.content {
+  margin-top: 50px;
+}

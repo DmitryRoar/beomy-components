@@ -1,0 +1,54 @@
+@import "../../../../../assets/styles/vars/color";
+
+.container {
+
+  text-align: center;
+
+  .col {
+    display: inline-block;
+    width: calc(100% / 7);
+  }
+
+  .name-day {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 87.38%;
+    text-align: center;
+    color: $dark-light;
+  }
+
+  .value-day {
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: $dark-light;
+    margin-top: 5px;
+
+    border-radius: 50%;
+    width: 21px;
+    height: 21px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &.selected {
+      background-color: $primary;
+      color: $snow;
+    }
+  }
+}
+
+
+div.center:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+
+  span.center {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}

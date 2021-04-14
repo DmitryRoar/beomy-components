@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <symbol id="select-closed" viewBox="0 0 12 8" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10.59 -1.23266e-07L6 4.59L1.41 -9.25807e-07L-1.2414e-07 1.42L6 7.42L12 1.42L10.59 -1.23266e-07Z"></path>
+  </symbol>
+  <symbol id="select-open" viewBox="0 0 12 8" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10.59 7.41992L6 2.82992L1.41 7.41992L-1.2414e-07 5.99992L6 -7.76768e-05L12 5.99992L10.59 7.41992Z"></path>
+  </symbol>
+</svg>

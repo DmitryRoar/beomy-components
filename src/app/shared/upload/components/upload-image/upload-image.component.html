@@ -1,0 +1,18 @@
+<mat-grid-list cols="1" rowHeight="1:1">
+  <mat-grid-tile>
+    <div class="camera-background">
+      <img src="/assets/img/upload-image/camera-background.svg" alt="background-img">
+    </div>
+    <div class="background-photo">
+      <div class="avatar" *ngIf="photosWebviewPath">
+        <img [src]="photosWebviewPath" alt="avatar-img">
+      </div>
+      <div class="label"><span>{{status}}</span></div>
+      <div class="button">
+        <button mat-fab color="primary" (click)="addPhotoToGallery()">
+          <gen-icon [name]="nameIcon" size="l"></gen-icon>
+        </button>
+      </div>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>

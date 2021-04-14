@@ -1,0 +1,28 @@
+@import "../vars/palette";
+
+@mixin colors($entity: 'common') {
+  // функция colors, которая принимает параметр $entity, по умолчанию "common"
+  @each $color in $colors {
+    /* в файле vars/palette существует переменная colors,
+       в которой перечисляются все наши цвета, кроме темных оттенков
+     */
+    &-#{nth($color, 1)} {
+      /*
+        используется в родительском классе.
+        В качестве вывода: parent-class-названиеЦвета
+        название - первое значение
+        сам цвет - второе значение
+       */
+      background: nth($color, 2) !important;
+
+      @if $entity == 'button' {
+        color: $snow !important;
+      }
+
+      @if $entity == 'disabled' {
+        background: $segment !important;
+        color: nth($color, 2) !important;
+      }
+    }
+  }
+}

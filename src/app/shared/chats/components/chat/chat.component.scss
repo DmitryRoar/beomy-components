@@ -1,0 +1,95 @@
+@import "../../../../../assets/styles/vars/color";
+
+$gen-chat-height: 82px;
+
+:host > div {
+  margin: 10px 16px 10px 15px;
+}
+
+.chat {
+  display: grid;
+  grid-template-columns: 50px 212px 74px repeat(2, 1fr);
+  grid-template-rows: 44px 38px repeat(3, 1fr);
+  grid-column-gap: 0;
+  grid-row-gap: 0;
+  height: $gen-chat-height;
+
+  .time {
+    grid-area: 1 / 1 / 2 / 2;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: left;
+    color: $dateout;
+  }
+
+  .count-messages {
+    grid-area: 2 / 1 / 3 / 2;
+
+    height: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+    max-width: 68px;
+
+    > span {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 17px;
+      text-align: center;
+      color: $snow;
+      background: $primary;
+      border-radius: 4px;
+      padding: 5px 17px;
+      display: block;
+      width: fit-content;
+
+      > span {
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+
+  .title {
+    grid-area: 1 / 2 / 2 / 3;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: right;
+    color: #1E2022;
+    margin-bottom: 10px;
+  }
+
+  .subtitle {
+    grid-area: 2 / 2 / 3 / 3;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 19px;
+    text-align: right;
+    color: $dark-light;
+
+    span {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding-right: 6px;
+    }
+  }
+
+  .chat-avatar {
+    grid-area: 1 / 3 / 3 / 4;
+    margin-left: 9px;
+
+    img.avatar {
+      width: 65px;
+      height: 65px;
+    }
+  }
+}

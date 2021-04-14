@@ -1,0 +1,56 @@
+<div class="wrap">
+  <p>dot: </p>
+  <gen-dot genColor="accent"></gen-dot>
+</div>
+
+<div class="wrap">
+  <p>button: </p>
+  <div class="column">
+    <button mat-flat-button color="primary">flat primary button</button>
+    <button mat-flat-button>WO color button</button>
+
+    <button mat-flat-button color="accent" genStyle="btnFooter">footer accent button</button>
+    <button mat-flat-button color="accent-gradient" genStyle="btnCorner">corner accent-gradient button</button>
+    <button mat-flat-button color="good" genStyle="btnCorner">corner good button</button>
+
+    <button mat-flat-button disabled color="primary">disabled primary button</button>
+    <button mat-flat-button disabled color="accent">disabled primary button</button>
+  </div>
+</div>
+
+<div class="wrap">
+  <p>checkbox: </p>
+  <section class="column">
+    <mat-checkbox color="primary">foo</mat-checkbox>
+    <mat-checkbox genStyle="checkboxRound">bar</mat-checkbox>
+  </section>
+</div>
+
+<div class="wrap">
+  <p>datepicker: </p>
+
+  <mat-form-field
+    genStyle="genInput"
+    appearance="fill"
+  >
+    <input
+      matInput
+      [matDatepicker]="picker"
+      placeholder="DD / MM / YYYY"
+    >
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</div>
+
+<div class="wrap">
+  <p>input: </p>
+  <input type="text" placeholder="hello" genStyle="genInput">
+</div>
+
+<div class="wrap">
+  <p>button with img: </p>
+  <button mat-fab color="snow">
+    <gen-dot genColor="good"></gen-dot>
+  </button>
+</div>

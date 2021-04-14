@@ -1,0 +1,22 @@
+.desform-login-middle,
+.desform-login-footer {
+  position: absolute !important;
+  width: 100% !important;
+  margin: 0 auto;
+  text-align: center !important;
+}
+
+.desform-login-footer {
+  padding-bottom: 0px !important;
+}
+
+.desform-login-middle {
+  z-index: -2 !important;
+  bottom: 0px !important;
+}
+
+.desform-login-footer {
+  z-index: -1 !important;
+  padding-top: 530px !important;
+  top: 23%;
+}

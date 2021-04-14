@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="col" *ngFor="let day of weekDate" (click)="selectDayEvent(day)">
+    <div class="name-day">
+      {{getNameDay(day)}}
+    </div>
+    <div class="value-day center" [ngClass]="{'selected': isSelected(day)}">
+      {{day.value}}
+    </div>
+    <div></div>
+  </div>
+</div>

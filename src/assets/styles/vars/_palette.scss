@@ -1,0 +1,39 @@
+@import '../../../../node_modules/@angular/material/theming';
+@import 'color';
+@include mat-core();
+
+$frontend-theme: mat-light-theme((
+  color: (
+    primary: $frontend-primary,
+    accent: $frontend-accent,
+    warn: $frontend-warn
+  )
+));
+
+@include angular-material-theme($frontend-theme);
+
+$colors:
+  "primary" $primary,
+  "accent" $accent,
+  "accent-gradient" $accent-gradient,
+  "warn" $warn,
+  "good" $success,
+  "snow" $snow,
+  "subject-purle" $subject-purple,
+  "subject-brown" $subject-brown,
+  "subject-warn" $subject-warn,
+  "subject-accent" $subject-accent,
+  "subject-primary" $subject-primary,
+  "mainbg" $mainbg;
+
+
+$gen-slider-theme:   mat-light-theme((
+        color: (
+                primary: mat-palette($mat-primary),
+                accent: mat-palette($mat-primary)
+        )
+));
+
+$gen-slider-theme: map_merge($gen-slider-theme, (background: $mat-primary, foreground: $mat-primary));
+
+@include mat-slider-color($gen-slider-theme);

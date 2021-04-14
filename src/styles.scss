@@ -1,0 +1,21 @@
+@import "assets/styles/index";
+/*
+  @import "assets/styles/material";
+  contains inside: general vars, checkbox vars, mixin color (color vars)
+*/
+
+* {
+  font-family: 'Rubik', sans-serif;
+}
+
+.gen-color {
+  @include colors();
+}
+
+.input {
+  padding: $input-p;
+  border-radius: $br;
+  border: $input-bw solid $segment;
+  width: $input-width;
+  height: $input-height;
+}

@@ -1,0 +1,73 @@
+services:
+  - docker:19.03.12-dind
+
+stages:
+  - build
+  - tests
+  - deploy
+
+
+build:main:
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  stage: build
+  script:
+    - mkdir -p /kaniko/.docker
+    - echo "BRANCH=$CI_COMMIT_REF_SLUG" > build.env
+    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+    - /kaniko/executor
+      --cache=true
+      --context $CI_PROJECT_DIR
+      --dockerfile $CI_PROJECT_DIR/Dockerfile
+      --destination $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+      --destination $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG-$CI_PIPELINE_ID
+build:tests:
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  stage: build
+  script:
+    - mkdir -p /kaniko/.docker
+    - echo "BRANCH=$CI_COMMIT_REF_SLUG" > build.env
+    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+    - /kaniko/executor
+      --cache=true
+      --context $CI_PROJECT_DIR
+      --dockerfile $CI_PROJECT_DIR/Dockerfile-chrome
+      --destination $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG-chrome
+      --destination $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG-$CI_PIPELINE_ID-chrome
+tests:
+  needs:
+    - build:tests
+  image: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG-$CI_PIPELINE_ID-chrome
+  stage: tests
+  script:
+    - ln -s /app/node_modules ./
+    - npm run test
+
+deploy:always:
+  stage: deploy
+  only:
+    - master
+    - dev
+  variables:
+    BRANCH: $CI_COMMIT_REF_SLUG
+  trigger:
+    project: studyapps/deploy
+    branch: master
+    strategy: depend
+
+deploy:manual:
+  stage: deploy
+  except:
+    refs:
+      - master
+      - dev
+  when: manual
+  variables:
+    BRANCH: $CI_COMMIT_REF_SLUG
+  trigger:
+    project: studyapps/deploy
+    branch: master
+    strategy: depend

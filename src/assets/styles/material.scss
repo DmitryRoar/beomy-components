@@ -1,0 +1,152 @@
+@import "vars/general";
+@import "vars/checkbox";
+@import "mixins/color";
+
+// button
+.mat-button-base {
+  border-radius: $br !important;
+
+  &.mat {
+    @include colors('button');
+
+    &-button-disabled {
+      &.mat {
+        @include colors('disabled')
+      }
+    }
+  }
+
+  &.footer {
+    border-radius: 0 0 $br $br !important;
+  }
+
+  &.corner {
+    border-radius: $br $br 0 $br !important;
+  }
+}
+
+// checkbox
+.mat-checkbox {
+  &-inner-container {
+    width: $checkbox-width !important;
+    height: $checkbox-height !important;
+    margin-right: 0 !important;
+  }
+
+  &.round {
+    .mat-checkbox-frame, .mat-checkbox-background {
+      border-radius: $br !important;
+    }
+  }
+
+  &-background, &-frame {
+    border: $checkbox-b solid $checkbox-disabled !important;
+    border-radius: $checkbox-br !important;
+    background: transparent !important;
+  }
+
+  &-checkmark-path {
+    stroke: $primary !important;
+    transform: scale(0.858, 1) translate(3px, -1px) !important;
+    stroke-width: 3px !important;
+  }
+
+  &-layout {
+    display: inline-flex;
+    flex-direction: row-reverse;
+  }
+
+  &-label {
+    margin-right: $checkbox-mr !important;
+  }
+
+  &-checked {
+    .mat-checkbox-background, .mat-checkbox-frame {
+      border: 3px solid $primary !important;
+    }
+  }
+}
+
+// form
+.mat-form-field {
+  .mat-icon-button {
+    width: 20px !important;
+    height: 18px !important;
+    align-items: flex-start !important;
+  }
+  .mat-input-element {
+    text-align: right !important;
+  }
+  &-infix {
+    padding: 0 !important;
+    border-top: 0 !important;
+  }
+  &-subscript-wrapper {
+    display: none !important;
+  }
+  &-wrapper {
+    padding: 0 !important;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  &-flex {
+    padding: 0 !important;
+    background: none !important;
+    flex-direction: row-reverse !important;
+    align-items: center !important;
+  }
+  &-underline {
+    display: none !important;
+    background: none !important;
+  }
+}
+
+// mat-slider
+$mat-slider-tick-size: 10px;
+mat-slider.mat-slider {
+  $mat-slider-height: 15px;
+  .mat-slider-wrapper {
+
+    height: $mat-slider-height;
+    .mat-slider-track-wrapper {
+      border-radius: 30px;
+      height: $mat-slider-height;
+      .mat-slider-track-background{
+        height: $mat-slider-height;
+        background: $snow;
+      }
+      .mat-slider-track-fill {
+        height: $mat-slider-height;
+      }
+    }
+
+    .mat-slider-ticks-container {
+      height: $mat-slider-height;
+      .mat-slider-ticks {
+        height: $mat-slider-height;
+      }
+    }
+
+    .mat-slider-thumb-container {
+      .mat-slider-focus-ring {
+        width: 21px;
+        height: 21px;
+      }
+      .mat-slider-thumb {
+        border: 5px solid rgba(255, 255, 255, 0.1);
+        width: 31px;
+        height: 31px;
+        bottom: -15px;
+      }
+      .mat-slider-thumb-label {
+        width: 48px;
+        height: 48px;
+        top: -70px;
+        right: -24px;
+      }
+    }
+  }
+}
+.mat-slider-min-value:not(.mat-slider-thumb-label-showing) .mat-slider-thumb {
+  background-color: $snow;
+}

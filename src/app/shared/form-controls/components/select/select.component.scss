@@ -1,0 +1,92 @@
+@import "../../../../../assets/styles/vars/color";
+
+$gen-select-min-height: 50px;
+$gen-select-max-height: 142px;
+$gen-select-icon-width: 12px;
+
+:host {
+  display: block;
+}
+
+.open {
+  transform: rotateX(180deg);
+}
+
+.select {
+  background: $snow;
+  border: 1px solid $segment;
+  border-radius: 30px;
+  min-height: $gen-select-min-height;
+
+  > * {
+    padding-left: 21px;
+    padding-right: 16px;
+  }
+
+  .select-button {
+    height: $gen-select-min-height;
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+
+    mat-icon {
+      height: 7px;
+      width: $gen-select-icon-width;
+    }
+
+    .text {
+      width: 100%;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 19px;
+      text-align: right;
+      color: $dark-light;
+    }
+  }
+
+  .options {
+    max-height: 142px;
+    overflow: auto;
+    margin-left: $gen-select-icon-width;
+    margin-bottom: 5px;
+
+    .option {
+      text-align: right;
+
+      .text {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 189.5%;
+        color: $dark-light;
+      }
+    }
+  }
+
+  &-open {
+    .select {
+      .select-button {
+        .text {
+          color: $segment;
+        }
+      }
+
+      &.definite {
+        .select-button {
+          .text {
+            visibility: hidden;
+          }
+        }
+
+        .options {
+          position: relative;
+          top: calc(#{-$gen-select-min-height} / 2);
+          z-index: 10;
+        }
+      }
+    }
+  }
+}
+
+

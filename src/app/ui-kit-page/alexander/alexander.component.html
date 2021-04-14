@@ -1,0 +1,68 @@
+<div class="wrap">
+  <gen-upload-image gender="woman"></gen-upload-image>
+</div>
+
+<div>
+  <gen-chat [chat]="chat"></gen-chat>
+</div>
+
+
+
+<div>
+  qweq
+  <gen-select>
+    <gen-option [value]="1">First option</gen-option>
+    <gen-option [value]="2">Second option</gen-option>
+  </gen-select>
+</div>
+qwe
+<div>
+  <ng-select class="custom" [searchable]="false" [clearable]="false" placeholder="From">
+    <ng-option [value]="true">Yes</ng-option>
+    <ng-option [value]="false">No</ng-option>
+    <ng-option [value]="false">No</ng-option>
+    <ng-option [value]="false">No</ng-option>
+    <ng-option [value]="false">No</ng-option>
+    <ng-option [value]="false">No</ng-option>
+    <ng-option [value]="false">No</ng-option>
+    <ng-option [value]="false">No</ng-option>
+    <ng-option [value]="false">No</ng-option>
+    <ng-option [value]="false">No</ng-option>
+    <ng-option [value]="false">No</ng-option>
+  </ng-select>
+</div>
+
+
+<div>
+  <gen-avatar [src]="chat.avatar" size="xxl"></gen-avatar>
+  <gen-avatar [src]="chat.avatar" size="xl"></gen-avatar>
+  <gen-avatar [src]="chat.avatar" size="l"></gen-avatar>
+  <gen-avatar [src]="chat.avatar" size="m"></gen-avatar>
+  <gen-avatar [src]="chat.avatar"></gen-avatar>
+</div>
+
+<div class="icons">
+  <air-dynamic-icon name="select-closed"></air-dynamic-icon>
+  <gen-icon [name]="'gen-camera'" size="xxl"></gen-icon>
+  <gen-icon [name]="'gen-camera'" size="xl"></gen-icon>
+  <gen-icon [name]="'gen-camera'" size="l"></gen-icon>
+  <gen-icon [name]="'gen-camera'" size="m"></gen-icon>
+  <gen-icon [name]="'gen-camera'" size="s"></gen-icon>
+  <gen-icon [name]="'gen-camera'" size="xs"></gen-icon>
+  <gen-icon [name]="'gen-camera'" size="xxs"></gen-icon>
+</div>
+
+<div>
+  <mat-slider
+    style="width: 100%;"
+    thumbLabel
+    [displayWith]="formatLabel"
+    step="10"
+    value="400"
+    min="1"
+    max="1000"></mat-slider>
+</div>
+
+<div>
+  <gen-calendar-week [(ngModel)]="day"></gen-calendar-week>
+</div>

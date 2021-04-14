@@ -1,0 +1,17 @@
+<div class="radio-group">
+  <label class="title"> {{ title }}</label
+  ><br />
+  <mat-radio-group
+    labelPosition="before"
+    [(ngModel)]="val"
+    (ngModelChange)="rbChange(val)"
+  >
+    <mat-radio-button
+      class="radio"
+      *ngFor="let radio of radioLst"
+      [value]="radio"
+    >
+      {{ radio }}
+    </mat-radio-button>
+  </mat-radio-group>
+</div>
